@@ -31,13 +31,11 @@
     "url": "https://github.com/ashleemboyer/cloud-function-fun"
   },
   "scripts": {
-    "build": "npm-run-all --parallel build:**",
-    "build-lambda": "netlify-lambda build /src/functions",
-    "build:app": "gatsby build",
+    "build": "gatsby build",
+    "build:lambda": "netlify-lambda build /src/functions",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "start": "npm-run-all --parallel start:app start:server",
-    "start:app": "npm run develop",
+    "start": "npm run develop",
     "start:server": "netlify-lambda serve /src/functions"
   },
   "version": "0.1.0"
