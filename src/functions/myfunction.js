@@ -2,14 +2,9 @@ var request = require('request')
 
 exports.handler = function(event, context, callback) {
   const data = {
-    css:
-      ".box { border: 4px solid #03B875; padding: 20px; font-family: 'Roboto'; }",
-    google_fonts: 'Roboto',
-    html: "<div class='box'>JavaScript ✅</div>",
+    html: '<p>Hello, world!!!</p>',
   }
-
-  // Create an image by sending a POST to the API.
-  // Retrieve your api_id and api_key from the Dashboard. https://htmlcsstoimage.com/dashboard
+  s
   request
     .post({ form: data, url: 'https://hcti.io/v1/image' })
     .auth(
