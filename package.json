@@ -31,7 +31,8 @@
     "url": "https://github.com/ashleemboyer/cloud-function-fun"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run build:lambda && npm run build:gatsby",
+    "build:gatsby": "gatsby build",
     "build:lambda": "netlify-lambda build /src/functions",
     "develop": "gatsby develop",
     "serve": "gatsby serve",

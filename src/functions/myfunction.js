@@ -4,7 +4,7 @@ exports.handler = function(event, context, callback) {
   const data = {
     html: '<p>Hello, world!!!</p>',
   }
-  s
+
   request
     .post({ form: data, url: 'https://hcti.io/v1/image' })
     .auth(
