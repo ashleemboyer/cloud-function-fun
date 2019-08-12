@@ -16,7 +16,7 @@ export default () => {
       <button
         onClick={() => {
           getResult().then(response => {
-            console.log('response is', response)
+            console.log('the response is', response)
           })
         }}
       >

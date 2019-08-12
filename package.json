@@ -35,8 +35,8 @@
     "build:lambda": "netlify-lambda build /src/functions",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "start": "npm run develop",
-    "start:server": "netlify-lambda serve /src/functions"
+    "serve:lambda": "npm rum build:lambda && netlify-lambda serve /src/functions",
+    "start": "npm run develop"
   },
   "version": "0.1.0"
 }
