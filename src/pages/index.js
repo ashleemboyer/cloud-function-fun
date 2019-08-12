@@ -6,7 +6,11 @@ export default () => {
   return (
     <>
       {container}
-      <a href={`/.netlify/functions/myfunction?container=${container}`}>
+      <a
+        href={`/.netlify/functions/myfunction?container=${encodeURIComponent(
+          container
+        )}`}
+      >
         Run a function!
       </a>
     </>
