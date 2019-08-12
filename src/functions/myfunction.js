@@ -17,6 +17,7 @@ exports.handler = function(event, context, callback) {
       'f8387fc1-7a56-4c5a-ab11-015ea1a902f6'
     )
     .on('data', function(dataaa) {
+      console.log('printing stuff here so i know this got updated')
       callback(null, { body: JSON.parse(dataaa).url, statusCode: 200 })
     })
 }
