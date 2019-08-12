@@ -1,4 +1,5 @@
 import React from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 
 export default () => {
   const container = <p>This is some text.</p>
@@ -8,7 +9,7 @@ export default () => {
       {container}
       <a
         href={`/.netlify/functions/myfunction?container=${encodeURIComponent(
-          container
+          renderToStaticMarkup(container)
         )}`}
       >
         Run a function!
