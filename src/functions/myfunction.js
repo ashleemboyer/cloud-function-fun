@@ -16,7 +16,7 @@ exports.handler = function(event, context, callback) {
     )
     .on('data', function(data) {
       callback(null, {
-        body: JSON.stringify(data),
+        body: JSON.parse(data),
         statusCode: 200,
       })
     })
