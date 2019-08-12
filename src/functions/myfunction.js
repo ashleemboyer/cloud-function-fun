@@ -2,9 +2,9 @@ const htmlToImage = require('html-to-image')
 
 exports.handler = function(event, context, callback) {
   const json = JSON.stringify(event.queryStringParameters)
-  console.log(json)
+  console.log(json.container, !!json.container)
 
-  if (json.container) {
+  if (!!json.container) {
     callback(null, {
       body: {
         container: decodeURIComponent(json.container),
