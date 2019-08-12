@@ -5,6 +5,8 @@ exports.handler = function(event, context, callback) {
     html: decodeURIComponent(event.queryStringParameters.container),
   }
 
+  console.log('the html is apparently:', data.html)
+
   request
     .post({ form: data, url: 'https://hcti.io/v1/image' })
     .auth(
@@ -12,7 +14,6 @@ exports.handler = function(event, context, callback) {
       'f8387fc1-7a56-4c5a-ab11-015ea1a902f6'
     )
     .on('data', function(dataaa) {
-      console.log('printing stuff here so i know this got updated')
       callback(null, { body: JSON.parse(dataaa).url, statusCode: 200 })
     })
 }
