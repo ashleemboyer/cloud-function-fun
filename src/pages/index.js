@@ -6,7 +6,7 @@ export default () => {
 
   const getResult = () => {
     return fetch(`/.netlify/functions/myfunction`).then(response => {
-      return response.json()
+      return response.text()
     })
   }
 
