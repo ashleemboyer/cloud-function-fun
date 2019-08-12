@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "gatsby": "^2.13.59",
+    "netlify-lambda": "^1.5.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
@@ -20,9 +21,11 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "build-lambda": "netlify-lambda build /src/functions",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
+    "serve-lambda": "netlify-lambda serve /src/functions",
     "start": "npm run develop",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
