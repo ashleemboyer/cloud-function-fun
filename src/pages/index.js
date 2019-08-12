@@ -1,3 +1,12 @@
-import React from "react"
+import React from 'react'
 
-export default () => <div>Hello world!</div>
+export default () => {
+  const container = (
+    <>
+      <p>This is some text.</p>
+      <a href="/.netlify/functions/myfunction">Run a function!</a>
+    </>
+  )
+
+  return container
+}
