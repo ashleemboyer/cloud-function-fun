@@ -2,7 +2,7 @@ var request = require('request')
 
 exports.handler = function(event, context, callback) {
   const data = {
-    html: '<p>Hello, world!!!</p>',
+    html: decodeURIComponent(event.queryStringParameters.container),
   }
 
   request

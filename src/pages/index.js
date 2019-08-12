@@ -4,11 +4,19 @@ import { renderToStaticMarkup } from 'react-dom/server'
 export default () => {
   const [imageRef, setImageRef] = useState()
 
-  const container = <p>This is some text.</p>
+  const container = (
+    <p style={{ margin: 12, padding: 12, color: '#616161' }}>
+      This is some text.
+    </p>
+  )
   const anchor = <a href={imageRef}>Open the image</a>
 
   const getResult = () => {
-    return fetch(`/.netlify/functions/myfunction`).then(response => {
+    return fetch(
+      `/.netlify/functions/myfunction?container=${encodeURIComponent(
+        renderToStaticMarkup(container)
+      )}`
+    ).then(response => {
       return response.text()
     })
   }
