@@ -2,6 +2,7 @@ const htmlToImage = require('html-to-image')
 
 exports.handler = function(event, context, callback) {
   const json = JSON.stringify(event.queryStringParameters)
+  console.log(json)
 
   if (json.container) {
     callback(null, {
