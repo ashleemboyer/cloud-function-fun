@@ -1,14 +1,14 @@
 import React from 'react'
 
 export default () => {
-  const container = (
+  const container = <p>This is some text.</p>
+
+  return (
     <>
-      <p>This is some text.</p>
+      {container}
       <a href={`/.netlify/functions/myfunction?container=${container}`}>
         Run a function!
       </a>
     </>
   )
-
-  return container
 }
