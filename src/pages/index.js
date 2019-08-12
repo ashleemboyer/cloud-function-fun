@@ -4,16 +4,24 @@ import { renderToStaticMarkup } from 'react-dom/server'
 export default () => {
   const container = <p>This is some text.</p>
 
+  const getResult = () => {
+    return fetch(`/.netlify/functions/myfunction`).then(response => {
+      return response.json()
+    })
+  }
+
   return (
     <>
       {container}
-      <a
-        href={`/.netlify/functions/myfunction?container=${encodeURIComponent(
-          renderToStaticMarkup(container)
-        )}`}
+      <button
+        onClick={() => {
+          getResult().then(response => {
+            console.log('response is', response)
+          })
+        }}
       >
         Run a function!
-      </a>
+      </button>
     </>
   )
 }

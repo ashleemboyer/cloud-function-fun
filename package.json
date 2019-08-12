@@ -4,9 +4,12 @@
   },
   "dependencies": {
     "gatsby": "^2.13.59",
+    "html-to-image": "^0.1.1",
     "netlify-lambda": "^1.5.1",
+    "npm-run-all": "^4.1.5",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "request": "^2.88.0"
   },
   "description": "A project for learning about cloud functions",
   "devDependencies": {
@@ -15,19 +18,27 @@
   "license": "MIT",
   "name": "cloud-function-fun",
   "private": true,
+  "proxy": {
+    "/.netlify/functions": {
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      },
+      "target": "http://localhost:9000"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ashleemboyer/cloud-function-fun"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm-run-all --parallel build:**",
     "build-lambda": "netlify-lambda build /src/functions",
+    "build:app": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
-    "serve-lambda": "netlify-lambda serve /src/functions",
-    "start": "npm run develop",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "start": "npm-run-all --parallel start:app start:server",
+    "start:app": "npm run develop",
+    "start:server": "netlify-lambda serve /src/functions"
   },
   "version": "0.1.0"
 }
